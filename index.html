@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日本企業超会議｜資料請求者向けご案内</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A111E;          /* deep navy-black background */
+    --ink-2:#111B2E;        /* raised panel */
+    --ink-3:#16233A;        /* card */
+    --fg:#ECE5D4;           /* warm ivory text */
+    --fg-mute:#9BA6B8;      /* muted */
+    --gold:#C8A24C;         /* brass accent */
+    --gold-2:#E7CE86;       /* highlight gold */
+    --line:rgba(200,162,76,.22);
+    --line-soft:rgba(236,229,212,.10);
+    --maxw:960px;
+    --serif:"Shippori Mincho",serif;
+    --sans:"Noto Sans JP",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--fg);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.75;
+    letter-spacing:.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ambient editorial grid motif — pure CSS, no imagery */
+  body::before{
+    content:"";
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(60% 45% at 82% 8%, rgba(200,162,76,.16), transparent 70%),
+      radial-gradient(50% 40% at 5% 95%, rgba(200,162,76,.08), transparent 70%),
+      linear-gradient(180deg,#0A111E 0%,#0C1424 100%);
+  }
+
+  .wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,44px)}
+
+  .eyebrow{
+    font-size:.70rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);font-weight:500;
+  }
+  .jp-eyebrow{font-size:.78rem;letter-spacing:.18em;color:var(--gold);font-weight:500}
+
+  /* ---------- Masthead ---------- */
+  header.mast{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
+    padding:30px 0 8px;border-bottom:1px solid var(--line);
+  }
+  .brand-mark{display:flex;flex-direction:column;gap:4px}
+  .brand-name{font-family:var(--serif);font-weight:700;font-size:1.18rem;letter-spacing:.06em}
+  .brand-sub{font-size:.66rem;letter-spacing:.24em;color:var(--fg-mute);text-transform:uppercase}
+  .mast-right{text-align:right;font-size:.72rem;color:var(--fg-mute);line-height:1.5}
+  .mast-right a{color:var(--gold);text-decoration:none}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:clamp(34px,6vw,60px) 0 clamp(24px,4vw,38px)}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:800;
+    font-size:clamp(2.05rem,6.2vw,3.5rem);
+    line-height:1.28;
+    letter-spacing:.02em;
+    margin:.35em 0 .55em;
+  }
+  .hero h1 .accent{color:var(--gold-2)}
+  .hero .lead{
+    font-size:clamp(1.02rem,2.4vw,1.24rem);
+    font-weight:500;
+    max-width:40ch;
+    color:var(--fg);
+    line-height:1.85;
+  }
+  .hero .lead b{color:var(--gold-2);font-weight:700}
+
+  /* ---------- What / signature diagram ---------- */
+  .what{padding:22px 0 8px}
+  .what p.body{max-width:60ch;color:var(--fg-mute);margin:.4em 0 26px}
+  .what p.body b{color:var(--fg);font-weight:500}
+
+  .flow{
+    border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(180deg,rgba(22,35,58,.55),rgba(17,27,46,.35));
+    padding:clamp(18px,3vw,26px);
+  }
+  .flow-title{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .flow-svg{width:100%;height:auto;display:block}
+
+  /* ---------- Trust ---------- */
+  .trust{padding:34px 0 8px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+  .sec-head .num{font-family:var(--serif);color:var(--gold);font-size:.95rem;letter-spacing:.1em}
+  .sec-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.25rem,3vw,1.6rem);margin:0;letter-spacing:.03em}
+
+  .trust-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:18px}
+  .founder{
+    background:var(--ink-2);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;
+  }
+  .founder .role{font-size:.70rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .founder .name{font-family:var(--serif);font-weight:700;font-size:1.3rem;margin:6px 0 10px;letter-spacing:.05em}
+  .founder ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+  .founder li{font-size:.86rem;color:var(--fg-mute);padding-left:16px;position:relative;line-height:1.6}
+  .founder li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+  .founder li b{color:var(--fg);font-weight:500}
+
+  .voices{display:flex;flex-direction:column;gap:14px}
+  .voice{
+    background:var(--ink-2);border:1px solid var(--line-soft);
+    border-radius:12px;overflow:hidden;display:flex;flex-direction:column;
+  }
+  .voice-thumb{position:relative;display:block;aspect-ratio:16/9;background:#0d1626;overflow:hidden}
+  .voice-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .voice-thumb:hover img{transform:scale(1.045)}
+  .voice-thumb .play{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:46px;height:46px;border-radius:50%;background:rgba(10,17,30,.55);
+    border:1.5px solid var(--gold-2);display:flex;align-items:center;justify-content:center;
+  }
+  .voice-thumb .play svg{width:16px;height:16px;fill:var(--gold-2);margin-left:2px}
+  .voice-thumb .tag{
+    position:absolute;left:10px;top:10px;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+    background:rgba(10,17,30,.72);color:var(--gold-2);padding:4px 9px;border-radius:5px;
+  }
+  .voice-body{padding:13px 16px;border-left:2px solid var(--gold)}
+  .voice-body p{margin:0 0 8px;font-size:.85rem;color:var(--fg);line-height:1.65}
+  .voice-body cite{font-style:normal;font-size:.72rem;color:var(--fg-mute);letter-spacing:.02em;display:block}
+
+  .partners{margin-top:18px;font-size:.78rem;color:var(--fg-mute);line-height:1.7}
+  .partners b{color:var(--fg);font-weight:500}
+
+  /* ---------- Programs ---------- */
+  .programs{padding:36px 0 8px}
+  .prog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .prog{
+    background:var(--ink-3);border:1px solid var(--line-soft);border-radius:12px;
+    padding:18px 20px;transition:border-color .2s ease,transform .2s ease;
+  }
+  .prog:hover{border-color:var(--line);transform:translateY(-2px)}
+  .prog-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .prog .icon{width:30px;height:30px;flex:0 0 30px;color:var(--gold);
+    border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center}
+  .prog .icon svg{width:18px;height:18px}
+  .prog .purpose{font-size:.72rem;letter-spacing:.14em;color:var(--gold);font-weight:500}
+  .prog .pname{font-family:var(--serif);font-weight:700;font-size:1.05rem;margin:5px 0 7px;letter-spacing:.03em;line-height:1.35}
+  .prog .pname small{display:block;font-family:var(--sans);font-weight:400;font-size:.66rem;letter-spacing:.16em;color:var(--fg-mute);margin-top:3px;text-transform:uppercase}
+  .prog .pdesc{font-size:.80rem;color:var(--fg-mute);line-height:1.6;margin:0}
+
+  .more-line{
+    margin-top:14px;font-size:.78rem;color:var(--fg-mute);
+    border:1px dashed var(--line);border-radius:10px;padding:12px 16px;line-height:1.7;
+  }
+  .more-line b{color:var(--fg);font-weight:500}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    margin:38px 0 12px;
+    background:linear-gradient(135deg,rgba(200,162,76,.14),rgba(200,162,76,.04));
+    border:1px solid var(--line);border-radius:16px;
+    padding:clamp(24px,4vw,34px);
+  }
+  .cta .step{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .cta h3{
+    font-family:var(--serif);font-weight:700;font-size:clamp(1.2rem,3vw,1.55rem);
+    margin:8px 0 6px;letter-spacing:.03em;line-height:1.5;
+  }
+  .cta p.sub{margin:0 0 20px;color:var(--fg-mute);font-size:.9rem;max-width:52ch}
+  .contact{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--gold);color:#0A111E;font-weight:700;font-size:.9rem;
+    text-decoration:none;padding:12px 22px;border-radius:999px;letter-spacing:.02em;
+    transition:background .2s ease;
+  }
+  .btn:hover{background:var(--gold-2)}
+  .contact .meta{font-size:.8rem;color:var(--fg-mute);line-height:1.6}
+  .contact .meta a{color:var(--gold);text-decoration:none}
+  .contact .meta b{color:var(--fg);font-weight:500}
+
+  /* ---------- Footer ---------- */
+  footer.foot{
+    margin-top:22px;padding:18px 0 40px;border-top:1px solid var(--line-soft);
+    font-size:.68rem;color:var(--fg-mute);line-height:1.7;
+  }
+  footer.foot .sender{color:var(--fg);font-weight:500;font-size:.74rem;margin-bottom:6px}
+
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px;border-radius:6px}
+
+  /* ---------- Motion ---------- */
+  .rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .flow-svg .draw{stroke-dasharray:6 6;animation:dash 12s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-240}}
+  @media (prefers-reduced-motion:reduce){
+    .rise{animation:none;opacity:1;transform:none}
+    .flow-svg .draw{animation:none}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:720px){
+    .trust-grid{grid-template-columns:1fr}
+    .prog-grid{grid-template-columns:1fr}
+    .mast-right{font-size:.68rem}
+    .hero .lead{max-width:none}
+  }
+
+  /* ---------- Print: A4 portrait, ink-friendly light theme ---------- */
+  @media print{
+    @page{size:A4 portrait;margin:12mm}
+    :root{
+      --ink:#ffffff;--ink-2:#faf8f2;--ink-3:#f7f4ec;
+      --fg:#17202E;--fg-mute:#4a5568;
+      --gold:#9A7B2E;--gold-2:#7d6320;
+      --line:#d9cfa8;--line-soft:#e6e0cf;
+    }
+    body{background:#fff;color:#17202E;line-height:1.55;font-size:10.5px;
+      -webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body::before{display:none}
+    .wrap{max-width:none;padding:0}
+    .rise{animation:none;opacity:1;transform:none}
+    .flow-svg .draw{animation:none}
+    header.mast{padding:0 0 8px}
+    .hero{padding:14px 0 10px}
+    .hero h1{font-size:1.9rem;line-height:1.24;margin:.2em 0 .4em}
+    .hero .lead{font-size:.98rem}
+    .hero h1 .accent,.hero .lead b{color:var(--gold-2)}
+    .what{padding:10px 0 4px}.what p.body{margin-bottom:12px}
+    .flow{break-inside:avoid;padding:12px 14px}
+    .trust,.programs{padding:14px 0 4px}
+    .founder,.voice,.prog{break-inside:avoid}
+    .voices{flex-direction:row;gap:10px}
+    .voice{flex:1}
+    .voice-thumb .play{display:none}
+    .voice-thumb{background:#eee}
+    .prog .icon{border-color:var(--line)}
+    .prog:hover{transform:none}
+    .cta{margin:14px 0 8px;break-inside:avoid;background:#faf6ea;border:1px solid var(--line)}
+    .btn{background:#9A7B2E;color:#fff;padding:8px 16px}
+    footer.foot{padding:10px 0 0}
+    a{color:#17202E !important;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Masthead -->
+  <header class="mast">
+    <div class="brand-mark">
+      <span class="jp-eyebrow">資料をご請求いただいた方へ</span>
+      <span class="brand-name">日本企業超会議</span>
+      <span class="brand-sub">Japan Business Mega Network</span>
+    </div>
+    <div class="mast-right">
+      運営：株式会社ジェネレートワン<br>
+      <a href="https://jbmn.jp">jbmn.jp</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero rise d1">
+    <span class="eyebrow">新・経済ブランド</span>
+    <h1>日本企業を、<br><span class="accent">憧れ</span>のブランドへ。</h1>
+    <p class="lead">「会社紹介」ではなく、<b>“貴社が選ばれる理由”</b>を、映像・イベント・SNS・コミュニティで社会に届ける企画です。</p>
+  </section>
+
+  <!-- What it is + signature flow -->
+  <section class="what rise d2">
+    <p class="body">貴社の<b>思想・人・現場・挑戦</b>を「物語」として編集し、YouTube／SNS／イベント／コミュニティ／出版へ展開。採用・広報・営業・ブランディングに<b>長期活用できる“資産”</b>をつくります。</p>
+
+    <div class="flow">
+      <div class="flow-title">1本の物語が、資産になって広がる</div>
+      <svg class="flow-svg" viewBox="0 0 900 150" role="img" aria-label="貴社の物語を、映像・SNS・イベント・コミュニティ・出版へ展開し、ブランド資産にする流れ">
+        <defs>
+          <linearGradient id="gl" x1="0" x2="1">
+            <stop offset="0" stop-color="#C8A24C"/><stop offset="1" stop-color="#E7CE86"/>
+          </linearGradient>
+        </defs>
+        <!-- connective lines -->
+        <g stroke="url(#gl)" stroke-width="1.4" fill="none" opacity="0.55">
+          <path class="draw" d="M170 75 H320"/>
+          <path class="draw" d="M600 40 H735"/>
+          <path class="draw" d="M600 75 H735"/>
+          <path class="draw" d="M600 110 H735"/>
+          <path d="M320 75 H360"/>
+        </g>
+        <!-- source node -->
+        <g>
+          <rect x="20" y="52" width="150" height="46" rx="8" fill="none" stroke="#C8A24C" stroke-width="1.4"/>
+          <text x="95" y="80" text-anchor="middle" fill="#ECE5D4" font-family="'Shippori Mincho',serif" font-size="16">貴社の物語</text>
+        </g>
+        <!-- edit hub -->
+        <g>
+          <circle cx="410" cy="75" r="50" fill="none" stroke="#E7CE86" stroke-width="1.6"/>
+          <text x="410" y="70" text-anchor="middle" fill="#E7CE86" font-family="'Shippori Mincho',serif" font-size="15">編集</text>
+          <text x="410" y="90" text-anchor="middle" fill="#9BA6B8" font-size="9" letter-spacing="1">EDIT</text>
+        </g>
+        <g stroke="url(#gl)" stroke-width="1.4" opacity="0.55"><path d="M460 75 H600"/></g>
+        <!-- channels -->
+        <g font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#ECE5D4">
+          <text x="745" y="26">映像（YouTube・TikTok）</text>
+          <text x="745" y="45">SNS拡散</text>
+          <text x="745" y="79">イベント・交流</text>
+          <text x="745" y="113">コミュニティ</text>
+          <text x="745" y="132">出版</text>
+        </g>
+        <circle cx="735" cy="40" r="3" fill="#E7CE86"/>
+        <circle cx="735" cy="75" r="3" fill="#E7CE86"/>
+        <circle cx="735" cy="110" r="3" fill="#E7CE86"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="trust rise d3">
+    <div class="sec-head">
+      <span class="num">01</span>
+      <h2>選ばれる理由は、つくり手にあります</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="founder">
+        <div class="role">主宰 ／ Producer</div>
+        <div class="name">髙瀬 敦也</div>
+        <ul>
+          <li>企画家・コンテンツプロデューサー。<b>国際エミー賞3度ノミネート（日本人最多）</b></li>
+          <li>「逃走中」「ヌメロン」「有吉の夏休み」ほかを企画</li>
+          <li>YouTube「お金のまなびば!」登録者<b>70万人</b>（金融ジャンル上位）</li>
+          <li>リアルリーダーズ MC：<b>井戸田潤・中野美奈子</b></li>
+        </ul>
+      </div>
+      <div class="voices">
+        <div class="voice">
+          <a class="voice-thumb" href="https://youtu.be/xpbAv9f_OVg" target="_blank" rel="noopener" aria-label="リアルリーダーズ 大丸松坂屋百貨店 出演回を見る">
+            <img src="https://i.ytimg.com/vi/xpbAv9f_OVg/maxresdefault.jpg"
+                 onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/xpbAv9f_OVg/hqdefault.jpg'"
+                 alt="リアルリーダーズ 大丸松坂屋百貨店 出演回" loading="lazy">
+            <span class="tag">Real Leaders 出演回</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </a>
+          <div class="voice-body">
+            <p>想像を超える再生数で、認知獲得とブランディングに最適な番組だと実感。強く推薦したい。</p>
+            <cite>— 大丸松坂屋百貨店 DX推進部 岡﨑路易 様</cite>
+          </div>
+        </div>
+        <div class="voice">
+          <a class="voice-thumb" href="https://youtu.be/cb1brNogDAo" target="_blank" rel="noopener" aria-label="リアルリーダーズ ハウスクラフト 出演回を見る">
+            <img src="https://i.ytimg.com/vi/cb1brNogDAo/maxresdefault.jpg"
+                 onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/cb1brNogDAo/hqdefault.jpg'"
+                 alt="リアルリーダーズ ハウスクラフト株式会社 出演回" loading="lazy">
+            <span class="tag">Real Leaders 出演回</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </a>
+          <div class="voice-body">
+            <p>公開後、認知・採用・ブランディングの3点で成果。動画を見て応募してくれる人が増えた。</p>
+            <cite>— ハウスクラフト株式会社 代表取締役 遠藤真二 様</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="partners">運営・株式会社ジェネレートワン（代表取締役 髙瀬敦也）の主な取引先：<b>日本放送協会（NHK）／電通／博報堂／サイバーエージェント／ソフトバンク／楽天／大丸松坂屋百貨店</b> ほか</p>
+  </section>
+
+  <!-- Programs -->
+  <section class="programs">
+    <div class="sec-head">
+      <span class="num">02</span>
+      <h2>目的から選べる、プログラム</h2>
+    </div>
+    <div class="prog-grid">
+      <div class="prog">
+        <div class="prog-top">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg></span>
+          <div class="purpose">魅せる</div>
+        </div>
+        <div class="pname">リアルリーダーズ<small>Real Leaders</small></div>
+        <p class="pdesc">企業・経営者・商品を“物語”として描く映像番組。約30分本編＋ダイジェストを公式YouTube・SNSで展開。</p>
+      </div>
+      <div class="prog">
+        <div class="prog-top">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17.5" cy="9" r="2.2"/><path d="M17.5 13.3c2.4 0 4.3 1.9 4.3 4.3"/></svg></span>
+          <div class="purpose">伝える</div>
+        </div>
+        <div class="pname">People &amp; Work<small>コノヒトト、シゴト。</small></div>
+        <p class="pdesc">企業の「人」と「空気感」を、タレントの力で映す映像企画。採用・広報の信頼獲得に直結。</p>
+      </div>
+      <div class="prog">
+        <div class="prog-top">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="12" r="2.6"/><path d="M8.6 12h6.8" stroke-dasharray="1.5 2"/><path d="M12 5v2.5M12 16.5V19"/></svg></span>
+          <div class="purpose">出会う</div>
+        </div>
+        <div class="pname">Exclusive First Session<small>First Session</small></div>
+        <p class="pdesc">選考を介さず、未来の中核人材と最初に出会う完全非公開セッション。関係の“起点”をつくる場。</p>
+      </div>
+      <div class="prog">
+        <div class="prog-top">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8.2"/><path d="M12 3.8v16.4M12 12l7.1 3.8M12 12L4.9 15.8" opacity=".45"/><circle cx="12" cy="3.8" r="1.7" fill="currentColor" stroke="none"/><circle cx="19.1" cy="15.8" r="1.7" fill="currentColor" stroke="none"/><circle cx="4.9" cy="15.8" r="1.7" fill="currentColor" stroke="none"/></svg></span>
+          <div class="purpose">つながる</div>
+        </div>
+        <div class="pname">EXCLUSIVE CONNECT 360<small>Executive Networking</small></div>
+        <p class="pdesc">各業界のトップが集う、招待制の超エグゼクティブ異業種交流会。上質な接点を設計する。</p>
+      </div>
+    </div>
+    <div class="more-line">
+      ほかにも <b>EXECUTIVE ANSWERS</b>（社長×高学歴学生トーク）／<b>CLUB NEXUS 2040</b>／<b>EXECUTIVE CONNECT TOKYO</b>／<b>GENESIS PITCH 2040</b>（最優秀賞500万円）／<b>ビジネス書</b>（全国書店流通）／<b>超コミュニティ</b> など、発信目的に合わせて選べます。
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <span class="step">次のステップ</span>
+    <h3>貴社の発信目的を15分で整理し、<br>最適な企画をご提案します。</h3>
+    <p class="sub">まずはオンラインで15分。現状のご要望を伺い、貴社に合うプログラムと活用イメージをご案内します。費用や進め方もその場でお答えします。</p>
+    <div class="contact">
+      <a class="btn" href="mailto:info@generate-one.com?subject=日本企業超会議%20資料請求後のご相談&amp;body=貴社名・ご担当者名・ご検討中の目的（採用／広報／営業／ブランディング等）をお知らせください。">15分相談を申し込む</a>
+      <div class="meta">
+        <b>株式会社ジェネレートワン</b><br>
+        Mail：<a href="mailto:info@generate-one.com">info@generate-one.com</a>　｜　
+        公式YouTube：<a href="https://www.youtube.com/channel/UCq11GfjpICAE7hKANyVErfw">日本企業超会議</a>　｜　
+        <a href="https://jbmn.jp">jbmn.jp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <div class="sender">株式会社ジェネレートワン ／ 東京都渋谷区神宮前4-1-24 ／ 代表取締役 髙瀬敦也</div>
+    本資料の情報は、日本企業超会議 公式サイト（jbmn.jp）および株式会社ジェネレートワン 公式サイト（2026年8月時点）の公表内容に基づいて作成しています。実績・肩書・出演者は各社の公表情報によります。番組・イベントの内容は変更となる場合があります。
+  </footer>
+
+</div>
+</body>
+</html>
