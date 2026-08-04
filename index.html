@@ -120,19 +120,27 @@
     background:var(--ink-2);border:1px solid var(--line-soft);
     border-radius:12px;overflow:hidden;display:flex;flex-direction:column;
   }
-  .voice-thumb{position:relative;display:block;aspect-ratio:16/9;background:#0d1626;overflow:hidden}
-  .voice-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+  .voice-thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;
+    background:linear-gradient(135deg,#1a2942,#0c1526)}
+  .thumb-fallback{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:7px;text-align:center;padding:14px}
+  .thumb-fallback .tf-brand{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+  .thumb-fallback .tf-co{font-family:var(--serif);font-weight:700;color:var(--fg);font-size:1.02rem;line-height:1.35}
+  .thumb-fallback .tf-cta{font-size:.7rem;color:var(--gold-2);letter-spacing:.05em;margin-top:2px}
+  .voice-thumb img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease,opacity .25s ease}
+  .voice-thumb img.bad{opacity:0}
   .voice-thumb:hover img{transform:scale(1.045)}
   .voice-thumb .play{
-    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
     width:46px;height:46px;border-radius:50%;background:rgba(10,17,30,.55);
     border:1.5px solid var(--gold-2);display:flex;align-items:center;justify-content:center;
   }
   .voice-thumb .play svg{width:16px;height:16px;fill:var(--gold-2);margin-left:2px}
   .voice-thumb .tag{
-    position:absolute;left:10px;top:10px;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+    position:absolute;left:10px;top:10px;z-index:2;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
     background:rgba(10,17,30,.72);color:var(--gold-2);padding:4px 9px;border-radius:5px;
   }
+  .voice-thumb img.bad ~ .play,.voice-thumb img.bad ~ .tag{display:none}
   .voice-body{padding:13px 16px;border-left:2px solid var(--gold)}
   .voice-body p{margin:0 0 8px;font-size:.85rem;color:var(--fg);line-height:1.65}
   .voice-body cite{font-style:normal;font-size:.72rem;color:var(--fg-mute);letter-spacing:.02em;display:block}
@@ -243,7 +251,10 @@
     .voices{flex-direction:row;gap:10px}
     .voice{flex:1}
     .voice-thumb .play{display:none}
-    .voice-thumb{background:#eee}
+    .voice-thumb{background:linear-gradient(135deg,#e9e3cf,#f5f1e6)}
+    .thumb-fallback .tf-co{color:#17202E}
+    .thumb-fallback .tf-brand{color:#9A7B2E}
+    .thumb-fallback .tf-cta{color:#7d6320}
     .prog .icon{border-color:var(--line)}
     .prog:hover{transform:none}
     .cta{margin:14px 0 8px;break-inside:avoid;background:#faf6ea;border:1px solid var(--line)}
@@ -342,9 +353,15 @@
       </div>
       <div class="voices">
         <div class="voice">
-          <a class="voice-thumb" href="https://youtu.be/xpbAv9f_OVg" target="_blank" rel="noopener" aria-label="リアルリーダーズ 大丸松坂屋百貨店 出演回を見る">
-            <img src="https://i.ytimg.com/vi/xpbAv9f_OVg/maxresdefault.jpg"
-                 onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/xpbAv9f_OVg/hqdefault.jpg'"
+          <a class="voice-thumb" href="https://www.youtube.com/channel/UCq11GfjpICAE7hKANyVErfw" target="_blank" rel="noopener" aria-label="リアルリーダーズ 大丸松坂屋百貨店 出演回を見る">
+            <span class="thumb-fallback" aria-hidden="true">
+              <span class="tf-brand">Real Leaders 出演回</span>
+              <span class="tf-co">大丸松坂屋百貨店</span>
+              <span class="tf-cta">▶ 公式YouTubeで見る</span>
+            </span>
+            <img data-id="xpbAv9f_OVg" data-steps="hqdefault,mqdefault"
+                 src="https://i.ytimg.com/vi/xpbAv9f_OVg/maxresdefault.jpg"
+                 onerror="ytFallback(this)" onload="if(this.naturalWidth<=120)ytFallback(this)"
                  alt="リアルリーダーズ 大丸松坂屋百貨店 出演回" loading="lazy">
             <span class="tag">Real Leaders 出演回</span>
             <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
@@ -356,8 +373,14 @@
         </div>
         <div class="voice">
           <a class="voice-thumb" href="https://youtu.be/cb1brNogDAo" target="_blank" rel="noopener" aria-label="リアルリーダーズ ハウスクラフト 出演回を見る">
-            <img src="https://i.ytimg.com/vi/cb1brNogDAo/maxresdefault.jpg"
-                 onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/cb1brNogDAo/hqdefault.jpg'"
+            <span class="thumb-fallback" aria-hidden="true">
+              <span class="tf-brand">Real Leaders 出演回</span>
+              <span class="tf-co">ハウスクラフト株式会社</span>
+              <span class="tf-cta">▶ 公式YouTubeで見る</span>
+            </span>
+            <img data-id="cb1brNogDAo" data-steps="hqdefault,mqdefault"
+                 src="https://i.ytimg.com/vi/cb1brNogDAo/maxresdefault.jpg"
+                 onerror="ytFallback(this)" onload="if(this.naturalWidth<=120)ytFallback(this)"
                  alt="リアルリーダーズ ハウスクラフト株式会社 出演回" loading="lazy">
             <span class="tag">Real Leaders 出演回</span>
             <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
@@ -440,5 +463,20 @@
   </footer>
 
 </div>
+<script>
+  // Step YouTube thumbnails down maxres -> hqdefault -> mqdefault; if none valid
+  // (or the grey "no thumbnail" placeholder, which is 120px wide), show the branded tile.
+  function ytFallback(img){
+    var id = img.getAttribute('data-id');
+    var steps = (img.getAttribute('data-steps') || '').split(',').filter(Boolean);
+    if (id && steps.length){
+      var next = steps.shift();
+      img.setAttribute('data-steps', steps.join(','));
+      img.src = 'https://i.ytimg.com/vi/' + id + '/' + next + '.jpg';
+    } else {
+      img.classList.add('bad');   // reveals the branded fallback tile
+    }
+  }
+</script>
 </body>
 </html>
